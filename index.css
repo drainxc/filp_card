@@ -1,0 +1,16 @@
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+input {
+    width: 50px;
+}
+span {
+    display: inline-flex;
+    width: 171px;
+    height: 248px;
+    margin: 5px;
+    
+    background-image: url(./asset/card.png);
+}

@@ -8,8 +8,8 @@ execute.addEventListener('click', function () {
         for (let i = 0; i < input; i++) {
             let newDiv = document.createElement("span");
             parent.appendChild(newDiv);
-        }
-        num++;
+        } // 카드 생성
+        num++; // 한 번만 실행 가능
         Array.prototype.shuffle = function () {
             while (length) {
                 let length = parent.children.length;
@@ -19,15 +19,14 @@ execute.addEventListener('click', function () {
                 this[index] = temp;
             }
             return this;
-        };
+        }; // 랜덤 배열
         for (let i = 0; i < parent.children.length / 2; i+=2) {
             card[i] = i;
             card[i + 1] = i;
-            
-        }
-        for (let i = 0; i < parent.children.length; i++) {
-            console.log(card[i]);
-        }
+        } // 카드에 수 넣기
+        // for (let i = 0; i < parent.children.length; i++) {
+        //     console.log(card[i]);
+        // }
         card.shuffle();
     }
     else if (input <= 0) {
@@ -35,5 +34,5 @@ execute.addEventListener('click', function () {
     }
     else if (input % 2 != 0) {
         alert("짝수를 입력해주세요.");
-    }
+    } // 예외 처리
 })

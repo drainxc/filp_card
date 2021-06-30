@@ -13,6 +13,9 @@ span {
     margin: 5px;
     background-color: white;
     border: solid 1px black;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
 }
 body {
     background-color: whitesmoke;

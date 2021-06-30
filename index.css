@@ -11,5 +11,9 @@ span {
     width: 171px;
     height: 248px;
     margin: 5px;
-    background-image: url(./asset/card.png);
+    background-color: white;
+    border: solid 1px black;
+}
+body {
+    background-color: whitesmoke;
 }

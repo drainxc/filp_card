@@ -12,17 +12,7 @@ execute.addEventListener('click', function () {
             parent.appendChild(newDiv);
         } // 카드 생성
         num++; // 한 번만 실행 가능`
-        Array.prototype.shuffle = function () {
-            let length = parent.children.length;
-            while (length) {
-                let index = Math.floor(length-- * Math.random());
-                let temp = this[length];
-                this[length] = this[index];
-                this[index] = temp;
-            }
-            return this;
-        }; // 랜덤 배열
-        for (let i = 0; i < parent.children.length; i+=2) {
+        for (let i = 0; i < parent.children.length; i += 2) {
             card[i] = arrNum;
             card[i + 1] = arrNum;
             arrNum++;
@@ -31,6 +21,7 @@ execute.addEventListener('click', function () {
         for (let i = 0; i < parent.children.length; i++) {
             console.log(card[i]);
         }
+        Show();
     }
     else if (input <= 0) {
         alert("양의 정수를 입력해주세요.");
@@ -39,6 +30,21 @@ execute.addEventListener('click', function () {
         alert("짝수를 입력해주세요.");
     } // 예외 처리
 })
-reload.addEventListener('click', function() {
+reload.addEventListener('click', function () {
     location.reload();
 })
+function Show() {
+    for(let i = 0; i < parent.children.length; i++) {
+        parent.children[i].innerHTML = card[i];
+    }
+}
+Array.prototype.shuffle = function () {
+    let length = parent.children.length;
+    while (length) {
+        let index = Math.floor(length-- * Math.random());
+        let temp = this[length];
+        this[length] = this[index];
+        this[index] = temp;
+    }
+    return this;
+}; // 랜덤 배열

@@ -6,7 +6,7 @@ main {
 input {
     width: 50px;
 }
-span {
+.newSpan {
     display: inline-flex;
     width: 171px;
     height: 248px;

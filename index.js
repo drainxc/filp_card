@@ -8,8 +8,9 @@ execute.addEventListener('click', function () {
     const input = document.getElementById('input').value;
     if (num == 0 && input % 2 == 0 && input != 0) {
         for (let i = 0; i < input; i++) {
-            let newDiv = document.createElement("span");
-            parent.appendChild(newDiv);
+            let newSpan = document.createElement("span");
+            newSpan.setAttribute("class","newSpan");
+            parent.appendChild(newSpan);
         } // 카드 생성
         num++; // 한 번만 실행 가능`
         for (let i = 0; i < parent.children.length; i += 2) {
@@ -37,6 +38,12 @@ function Show() {
     for(let i = 0; i < parent.children.length; i++) {
         parent.children[i].innerHTML = card[i];
     }
+    setTimeout(function() {
+        for(let i = 0; i < parent.children.length; i++) {
+            document.getElementsByClassName('newSpan')[i].style.backgroundImage = "url('./asset/card.png')"
+            parent.children[i].innerHTML = "";
+        }
+      }, document.getElementById('input').value * 500);
 }
 Array.prototype.shuffle = function () {
     let length = parent.children.length;

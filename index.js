@@ -5,7 +5,7 @@ let num = 0;
 let card = [];
 let arrNum = 0;
 let flip = 0;
-let back = [];
+let front = [];
 execute.addEventListener('click', function () { // 실행 버튼 눌렀을 때
     const input = document.getElementById('input').value;
     if (num == 0 && input % 2 == 0 && input != 0) {
@@ -33,13 +33,13 @@ execute.addEventListener('click', function () { // 실행 버튼 눌렀을 때
         alert("짝수를 입력해주세요.");
     } // 예외 처리
 })
-reload.addEventListener('click', function () {
+reload.addEventListener('click', function () { // 다시 시작 버튼 눌렀을 때
     location.reload(); // 다시 시작
 })
 function allShow() {
     for (let i = 0; i < parent.children.length; i++) {
         parent.children[i].innerHTML = card[i];
-    }
+    } // 앞면 숫자 보여주기
     setTimeout(function () {
         for (let i = 0; i < parent.children.length; i++) {
             document.getElementsByClassName('newSpan')[i].style.backgroundImage = "url('./asset/card.png')"
@@ -60,12 +60,12 @@ Array.prototype.shuffle = function () {
 }; // 랜덤 배열
 function click() {
     for (let i = 0; i < parent.children.length; i++) {
-        parent.children[i].addEventListener('click', function () {
+        parent.children[i].addEventListener('click', function () { // 카드를 눌렀을 때
             document.getElementsByClassName('newSpan')[i].style.backgroundImage = "url('')";
-            parent.children[i].innerHTML = card[i];
-            back[flip] = card[i];
+            parent.children[i].innerHTML = card[i]; // 앞면으로 뒤집기
+            front[flip] = card[i];
             if (flip >= 1) {
-                if (back[flip - 1] == back[flip]) {
+                if (front[flip - 1] == front[flip]) {
                     setTimeout(function () {
                         alert('맞았습니다!');
                     }, 100)
@@ -74,16 +74,16 @@ function click() {
                 else {
                     setTimeout(function () {
                         alert('틀렸습니다!');
-                        for (let j = 0; j < parent.children.length; j++) {    
-                            document.getElementsByClassName('newSpan')[j].style.backgroundImage = "url('./asset/card.png')";
-                            parent.children[j].innerHTML = "　";
+                        for (let i = 0; i < parent.children.length; i++) {    
+                            document.getElementsByClassName('newSpan')[i].style.backgroundImage = "url('./asset/card.png')";
+                            parent.children[i].innerHTML = "　"; // 뒷면으로 뒤집기
                         }
-                    }, 1000)
+                    }, 100)
                     flip = 0;
-                }
+                }   
             }
             else {
-                flip++;
+                flip++; // 뒤집힌 카드 갯수
             }
         })
     }

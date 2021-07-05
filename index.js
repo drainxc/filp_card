@@ -60,13 +60,25 @@ Array.prototype.shuffle = function () {
 }; // 랜덤 배열
 function click() {
     for (let i = 0; i < parent.children.length; i++) {
-        parent.children[i].addEventListener('click', function() {
+        parent.children[i].addEventListener('click', function () {
             document.getElementsByClassName('newSpan')[i].style.backgroundImage = "url('')";
             parent.children[i].innerHTML = card[i];
             back[flip] = card[i];
-            if(flip >= 1) {
-                if(back[flip - 1] == back[flip]) {
-                    alert('맞았습니다!');
+            if (flip >= 1) {
+                if (back[flip - 1] == back[flip]) {
+                    setTimeout(function () {
+                        alert('맞았습니다!');
+                    }, 100)
+                    flip = 0;
+                }
+                else {
+                    setTimeout(function () {
+                        for (let j = 0; j < parent.children.length; j++) {
+                            document.getElementsByClassName('newSpan')[j].style.backgroundImage = "url('./asset/card.png')";
+                            parent.children[j].innerHTML = "　";
+                        }
+                    }, 5000)
+                    alert('틀렸습니다!');
                     flip = 0;
                 }
             }

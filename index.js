@@ -73,12 +73,12 @@ function click() {
                 }
                 else {
                     setTimeout(function () {
-                        for (let j = 0; j < parent.children.length; j++) {
+                        alert('틀렸습니다!');
+                        for (let j = 0; j < parent.children.length; j++) {    
                             document.getElementsByClassName('newSpan')[j].style.backgroundImage = "url('./asset/card.png')";
                             parent.children[j].innerHTML = "　";
                         }
-                    }, 5000)
-                    alert('틀렸습니다!');
+                    }, 1000)
                     flip = 0;
                 }
             }
